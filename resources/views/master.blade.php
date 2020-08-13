@@ -23,14 +23,14 @@
 <!-- Site wrapper -->
 <div class="wrapper">
   <!-- Navbar -->
-  <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+  <nav class="main-header navbar navbar-expand navbar-dark navbar-primary">
     <!-- Left navbar links -->
     <ul class="navbar-nav">
       <li class="nav-item">
         <a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="{{ url('/') }}" class="nav-link">Home</a>
+        <a href="{{ route('home') }}" class="nav-link">Home</a>
       </li>
     </ul>
 
@@ -51,7 +51,7 @@
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="{{ url('/') }}" class="brand-link">
+    <a href="{{ route('home') }}" class="brand-link">
       <img src="{{ asset('assets/dist/img/ims-logo.png') }}"
            class="brand-image img-circle elevation-3"
            style="opacity: .8">
@@ -66,7 +66,7 @@
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
             <!-- Dashboard -->
             <li class="nav-item">
-                <a href="{{ url('/') }}" class="nav-link active">
+                <a href="{{ route('home') }}" class="nav-link {{ request()->is('/') ? 'active' : '' }}">
                     <i class="nav-icon fas fa-home"></i>
                     <p>Dashboard</p>
                 </a>
@@ -74,7 +74,7 @@
 
             <!-- Pengadaan Log -->
             <li class="nav-item">
-                <a href="{{ url('/logistik') }}" class="nav-link">
+                <a href="{{ route('logistik') }}" class="nav-link {{ request()->is('logistik') ? 'active' : '' }}">
                     <i class="nav-icon fas fa-box-open"></i>
                     <p>Pengadaan Logistik</p>
                 </a>
@@ -82,7 +82,7 @@
 
             <!-- Master Purchaser -->
             <li class="nav-item">
-                <a href="{{ url('/purchaser') }}" class="nav-link">
+                <a href="{{ route('purchaser') }}" class="nav-link {{ request()->is('purchaser') ? 'active' : '' }}">
                     <i class="nav-icon fas fa-id-badge"></i>
                     <p>Master Purchaser</p>
                 </a>
@@ -90,7 +90,7 @@
 
             <!-- Group Material -->
             <li class="nav-item">
-                <a href="{{ url('/material') }}" class="nav-link">
+                <a href="{{ route('material') }}" class="nav-link {{ request()->is('material') ? 'active' : '' }}">
                     <i class="nav-icon fas fa-industry"></i>
                     <p>Group Material</p>
                 </a>
@@ -110,10 +110,9 @@
 
   <footer class="main-footer">
     <div class="float-right d-none d-sm-block">
-      <b>Version</b> 3.0.1
+      <b>Version</b> 0.0.1
     </div>
-    <strong>Copyright &copy; 2014-2019 <a href="http://adminlte.io">AdminLTE.io</a>.</strong> All rights
-    reserved.
+    <strong>Copyright &copy; 2020 <a href="http://inkamultisolusi.co.id">PT INKA Multi Solusi</a>.</strong> All rights reserved.
   </footer>
 
   <!-- Control Sidebar -->
