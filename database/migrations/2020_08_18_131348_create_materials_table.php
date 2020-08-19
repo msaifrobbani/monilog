@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Purchaser extends Migration
+class CreateMaterialsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,11 @@ class Purchaser extends Migration
      */
     public function up()
     {
-        
-        Schema::create('purchaser', function (Blueprint $table) {
-            $table->bigIncrements('nip');
-            $table->string('name', 255)->nullable();
+        Schema::create('materials', function (Blueprint $table) {
+            $table->id();
+            $table->string('group_materials', 255);
             $table->timestamps();
         });
-        
     }
 
     /**
@@ -29,6 +27,6 @@ class Purchaser extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('purchaser');
+        Schema::dropIfExists('materials');
     }
 }

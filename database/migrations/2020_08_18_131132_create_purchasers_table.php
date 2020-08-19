@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class GroupMaterial extends Migration
+class CreatePurchasersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,10 @@ class GroupMaterial extends Migration
      */
     public function up()
     {
-        Schema::create('group_material', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string('name_material', 255)->nullable()->default('text');
+        Schema::create('purchasers', function (Blueprint $table) {
+            $table->id();
+            $table->string('nip',255);
+            $table->string('nama', 255);
             $table->timestamps();
         });
     }
@@ -27,6 +28,6 @@ class GroupMaterial extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('group_material');
+        Schema::dropIfExists('purchasers');
     }
 }

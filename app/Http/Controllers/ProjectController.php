@@ -2,11 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Material;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
-class MaterialController extends Controller
+class ProjectController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +13,7 @@ class MaterialController extends Controller
      */
     public function index()
     {
-        $material = DB::table('materials')->get();
-        return view('material', ['material' => $material]);
+        //
     }
 
     /**
@@ -26,7 +23,7 @@ class MaterialController extends Controller
      */
     public function create()
     {
-        return view('material.input');
+        //
     }
 
     /**
@@ -37,21 +34,7 @@ class MaterialController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'group_materials' => 'required'
-        ]);
-        Material::create([
-            'group_materials' => $request->group_materials
-        ]);
-
-        return redirect('/material')->with('pesan', '
-            <div class="alert alert-success alert-dismissible fade show" role="alert">
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span></button>
-                <i class="icon fas fa-check"></i>
-                Data Berhasil Disimpan
-            </div>
-        ');
+        //
     }
 
     /**
@@ -83,7 +66,7 @@ class MaterialController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -96,15 +79,6 @@ class MaterialController extends Controller
      */
     public function destroy($id)
     {
-        DB::table('materials')->where('id', $id)->delete();
-
-        return redirect('/material')->with('pesan', '
-            <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span></button>
-                <i class="icon fas fa-ban"></i>
-                Data Berhasil Dihapus
-            </div>
-        ');
+        //
     }
 }

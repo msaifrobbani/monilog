@@ -15,6 +15,8 @@
   <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
   <!-- overlayScrollbars -->
   <link rel="stylesheet" href="{{ asset('assets/dist/css/adminlte.min.css') }}">
+  <!-- DataTables -->
+  <link rel="stylesheet" href="{{ asset('assets/plugins/datatables-bs4/css/dataTables.bootstrap4.css') }}">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
@@ -33,18 +35,6 @@
         <a href="{{ route('home') }}" class="nav-link">Home</a>
       </li>
     </ul>
-
-    <!-- SEARCH FORM -->
-    <form class="form-inline ml-3">
-      <div class="input-group input-group-sm">
-        <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
-        <div class="input-group-append">
-          <button class="btn btn-navbar" type="submit">
-            <i class="fas fa-search"></i>
-          </button>
-        </div>
-      </div>
-    </form>
   </nav>
   <!-- /.navbar -->
 
@@ -95,6 +85,14 @@
                     <p>Group Material</p>
                 </a>
             </li>
+
+            <!-- Project -->
+            <li class="nav-item">
+                <a href="{{ route('project') }}" class="nav-link {{ request()->is('project') ? 'active' : '' }}">
+                    <i class="nav-icon fas fa-subway"></i>
+                    <p>Projects</p>
+                </a>
+            </li>
         </ul>
       </nav>
       <!-- /.sidebar-menu -->
@@ -125,9 +123,27 @@
 
 <!-- jQuery -->
 <script src="{{ asset('assets/plugins/jquery/jquery.min.js') }}"></script>
+<!-- DataTables -->
+<script src="{{ asset('assets/plugins/datatables/jquery.dataTables.js') }}"></script>
+<script src="{{ asset('assets/plugins/datatables-bs4/js/dataTables.bootstrap4.js') }}"></script>
 <!-- Bootstrap 4 -->
 <script src="{{ asset('assets/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 <!-- AdminLTE App -->
 <script src="{{ asset('assets/dist/js/adminlte.min.js') }}"></script>
+
+<script>
+  $(document).ready(function(){
+    $('#tablemonilog').DataTable();
+  });
+</script>
+<script>
+  $(document).ready(function() {
+    window.setTimeout(function() {
+        $(".alert").fadeTo(500, 0).slideUp(500, function(){
+            $(this).remove();
+        });
+    }, 2000);
+});    
+</script>
 </body>
 </html>
