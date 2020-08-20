@@ -10,7 +10,7 @@
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col-sm-6">
-          <h1>Dashboard</h1>
+          <h1>Master Data Grup Material</h1>
         </div>
       </div>
       @if (session('pesan'))
@@ -42,7 +42,7 @@
                 <td>{{ $material->group_materials }}</td>
                 <td>
                   <a href="/material/{{ $material->id }}/edit" class="btn btn-sm btn-primary">Update</a>
-                  <a href="/material/{{ $material->id }}/delete" onclick="return confirm('Yakin Purchaser Ini Mau Dihapus?')" class="btn btn-sm btn-danger">Delete</a>
+                  <a href="/material/{{ $material->id }}/delete" onclick="return confirm('Yakin Material Ini Mau Dihapus?')" class="btn btn-sm btn-danger">Delete</a>
                 </td>
               </tr>
               @endforeach

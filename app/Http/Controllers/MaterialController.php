@@ -73,7 +73,8 @@ class MaterialController extends Controller
      */
     public function edit($id)
     {
-        //
+        $material = DB::table('materials')->where('id', $id)->first();
+        return view('material.edit', compact('material'));
     }
 
     /**
@@ -85,7 +86,22 @@ class MaterialController extends Controller
      */
     public function update(Request $request)
     {
-        //
+        $this->validate($request,[
+            'group_materials' => 'required'
+        ]);
+
+        DB::table('materials')->where('id', $request->id)->update([
+            'group_materials'   => $request->group_materials
+        ]);
+
+        return redirect('/material')->with('pesan', '
+            <div class="alert alert-info alert-dismissible fade show" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span></button>
+                <i class="icon fas fa-check"></i>
+                Data Berhasil Diupdate
+            </div>
+        ');
     }
 
     /**
@@ -102,7 +118,7 @@ class MaterialController extends Controller
             <div class="alert alert-danger alert-dismissible fade show" role="alert">
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">&times;</span></button>
-                <i class="icon fas fa-ban"></i>
+                <i class="icon fas fa-exclamation-triangle"></i>
                 Data Berhasil Dihapus
             </div>
         ');

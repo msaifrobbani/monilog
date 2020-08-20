@@ -10,7 +10,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Purchaser</h1>
+            <h1>Master Data Purchaser</h1>
           </div>
         </div>
         @if (session('pesan'))
@@ -44,7 +44,27 @@
                   <td>{{ $purchaser->nama }}</td>
                   <td>
                     <a href="/purchaser/{{ $purchaser->id }}/edit" class="btn btn-sm btn-primary">Update</a>
-                    <a href="/purchaser/{{ $purchaser->id }}/delete" onclick="return confirm('Yakin Purchaser Ini Mau Dihapus?')" class="btn btn-sm btn-danger">Delete</a>
+                    <a href=" #delete" class="btn btn-sm btn-danger trigger-btn" data-toggle="modal">Delete</a>
+                    <div id="delete" class="modal fade" style="display: none;" aria-hidden="true">
+                      <div class="modal-dialog modal-confirm">
+                        <div class="modal-content">
+                          <div class="modal-header flex-column">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
+                            <div class="icon-box">
+                              <i class="far fa-times-circle justify-content-center"></i>
+                            </div>
+                            <h4 class="modal-title w-100">Delete User</h4>
+                          </div>
+                          <div class="modal-body">
+                            <p>Kamu yakin akan menghapus item ini? Karena proses ini akan membuat data kamu hilang.</p>
+                          </div>
+                          <div class="modal-footer justify-content-center">
+                            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                            <a href="/purchaser/{{ $purchaser->id }}/delete" type="button" class="btn btn-danger">Delete</a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </td>
                 </tr>
                 @endforeach
